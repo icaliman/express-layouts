@@ -6,6 +6,8 @@ Layout support in express for Parse
 
 Put 'express-layouts.js' file in your cloud/ folder.
 
+## Example
+
 app.js
 
 ```js
@@ -37,7 +39,7 @@ home-layout.ejs
   </head>
   <body>
     <h1>Layout example</h1>
-    <p><%- body %></p>
+    <%- body %>
   </body>
 </html>
 ```
