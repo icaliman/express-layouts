@@ -16,8 +16,8 @@ var express = require('express'),
     app = express();
 
 app.set('views', 'cloud/views');
-app.set('view engine', 'myDefaultLayout');
-app.set('layout', 'my-layout'); // defaults to 'layout'
+app.set('view engine', 'ejs');
+app.set('layout', 'my-default-layout'); // defaults to 'layout'
 app.use(expressLayouts);
 
 app.get('/', function(req, res) {
