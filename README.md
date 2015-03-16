@@ -4,7 +4,7 @@ Layout support in express for Parse
 
 ## Usage
 
-Put 'express-layouts.js' file in your cloud/ folder.
+Put 'express-layouts.js' file in your cloud/modules folder.
 
 ## Example
 
@@ -12,7 +12,7 @@ app.js
 
 ```js
 var express = require('express'),
-    expressLayouts = require('cloud/express-layouts.js'),
+    expressLayouts = require('cloud/modules/express-layouts.js'),
     app = express();
 
 app.set('views', 'cloud/views');
@@ -21,6 +21,10 @@ app.set('layout', 'my-default-layout'); // defaults to 'layout'
 app.use(expressLayouts);
 
 app.get('/', function(req, res) {
+  res.render('index'); // will use 'my-default-layout'
+});
+
+app.get('/hello', function(req, res) {
   res.render('hello', {
     layout: 'home-layout',
     message: 'Hello world!'
@@ -38,7 +42,7 @@ home-layout.ejs
     <title>Sample App</title>
   </head>
   <body>
-    <h1>Layout example</h1>
+    <h1>Home layout example</h1>
     <%- body %>
   </body>
 </html>
