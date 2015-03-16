@@ -26,7 +26,7 @@ app.get('/', function(req, res) {
 
 app.get('/hello', function(req, res) {
   res.render('hello', {
-    layout: 'home-layout',
+    layout: 'home-layout', // use another layout
     message: 'Hello world!'
   });
 });
