@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>parse-express-layouts by icaliman</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>parse-express-layouts</h1>
+        <p>Layout support for express on parse.com</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/icaliman/parse-express-layouts" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/icaliman/parse-express-layouts/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/icaliman/parse-express-layouts/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1>
+<a id="parse-express-layouts" class="anchor" href="#parse-express-layouts" aria-hidden="true"><span class="octicon octicon-link"></span></a>parse-express-layouts</h1>
+
+<p>Layout support for express on parse.com</p>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>Put 'express-layouts.js' file in your cloud/modules folder.</p>
+
+<h2>
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h2>
+
+<p>app.js</p>
+
+<div class="highlight highlight-js"><pre><span class="pl-k">var</span> express <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>express<span class="pl-pds">'</span></span>),
+    expressLayouts <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>cloud/modules/express-layouts.js<span class="pl-pds">'</span></span>),
+    app <span class="pl-k">=</span> express();
+
+app.set(<span class="pl-s"><span class="pl-pds">'</span>views<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>cloud/views<span class="pl-pds">'</span></span>);
+app.set(<span class="pl-s"><span class="pl-pds">'</span>view engine<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>ejs<span class="pl-pds">'</span></span>);
+app.set(<span class="pl-s"><span class="pl-pds">'</span>layout<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>my-default-layout<span class="pl-pds">'</span></span>); <span class="pl-c">// defaults to 'layout'</span>
+app.use(expressLayouts);
+
+app.get(<span class="pl-s"><span class="pl-pds">'</span>/<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">req</span>, <span class="pl-smi">res</span>) {
+  res.render(<span class="pl-s"><span class="pl-pds">'</span>index<span class="pl-pds">'</span></span>); <span class="pl-c">// will use 'my-default-layout'</span>
+});
+
+app.get(<span class="pl-s"><span class="pl-pds">'</span>/hello<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">req</span>, <span class="pl-smi">res</span>) {
+  res.render(<span class="pl-s"><span class="pl-pds">'</span>hello<span class="pl-pds">'</span></span>, {
+    layout<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>home-layout<span class="pl-pds">'</span></span>, <span class="pl-c">// use another layout</span>
+    message<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Hello world!<span class="pl-pds">'</span></span>
+  });
+});
+
+app.listen();</pre></div>
+
+<p>home-layout.ejs</p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">html</span>&gt;
+  &lt;<span class="pl-ent">head</span>&gt;
+    &lt;<span class="pl-ent">title</span>&gt;Sample App&lt;/<span class="pl-ent">title</span>&gt;
+  &lt;/<span class="pl-ent">head</span>&gt;
+  &lt;<span class="pl-ent">body</span>&gt;
+    &lt;<span class="pl-ent">h1</span>&gt;Home layout example&lt;/<span class="pl-ent">h1</span>&gt;
+    &lt;%- body %&gt;
+  &lt;/<span class="pl-ent">body</span>&gt;
+&lt;/<span class="pl-ent">html</span>&gt;</pre></div>
+
+<p>hello.ejs</p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">p</span>&gt;&lt;%= message %&gt;&lt;/<span class="pl-ent">p</span>&gt;</pre></div>
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/icaliman">icaliman</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
