@@ -1,6 +1,6 @@
 # parse-express-layouts
 
-Layout support in express for Parse
+Layout support for [express](http://expressjs.com/) on [parse.com](https://parse.com/)
 
 ## Usage
 
