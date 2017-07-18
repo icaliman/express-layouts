@@ -1,5 +1,5 @@
-title: parse-express-layouts
-description: Layout support for express on parse.com
+title: express-layouts
+description: Layout support for express.js
 google_analytics: UA-45109286-9
 show_downloads: true
 theme: jekyll-theme-cayman
