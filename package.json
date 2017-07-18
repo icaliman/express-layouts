@@ -1,0 +1,24 @@
+{
+  "name": "express-layouts",
+  "version": "1.0.0",
+  "description": "ExpressJS EJS Layout Support",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/icaliman/express-layouts.git"
+  },
+  "keywords": [
+    "expressjs",
+    "layout",
+    "ejs"
+  ],
+  "author": "icaliman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/icaliman/express-layouts/issues"
+  },
+  "homepage": "https://github.com/icaliman/express-layouts#readme"
+}
