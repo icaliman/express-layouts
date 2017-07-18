@@ -2,7 +2,7 @@ title: parse-express-layouts
 description: Layout support for express on parse.com
 google_analytics: UA-45109286-9
 show_downloads: true
-theme: jekyll-theme-minimal
+theme: jekyll-theme-leap-day
 
 gems:
   - jekyll-mentions
