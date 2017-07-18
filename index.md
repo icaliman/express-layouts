@@ -1,24 +1,25 @@
-# parse-express-layouts
+# express-layouts
 
-Layout support for [express](http://expressjs.com/) on [parse.com](https://parse.com/)
+Simple Layout Support for [Express](http://expressjs.com/)
 
-## Usage
+## Installation
 
-Put 'express-layouts.js' file in your cloud/modules folder.
+> npm install express-layouts --save
 
-## Example
+## Usage Example
 
 app.js
 
 ```js
 var express = require('express'),
-    expressLayouts = require('cloud/modules/express-layouts.js'),
+    expressLayouts = require('express-layouts'),
     app = express();
+
+app.use(expressLayouts);
 
 app.set('views', 'cloud/views');
 app.set('view engine', 'ejs');
 app.set('layout', 'my-default-layout'); // defaults to 'layout'
-app.use(expressLayouts);
 
 app.get('/', function(req, res) {
   res.render('index'); // will use 'my-default-layout'
@@ -26,7 +27,7 @@ app.get('/', function(req, res) {
 
 app.get('/hello', function(req, res) {
   res.render('hello', {
-    layout: 'home-layout', // use another layout
+    layout: 'home-layout', // use home-layout
     message: 'Hello world!'
   });
 });
